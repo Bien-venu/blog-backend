@@ -2,8 +2,18 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const db = require("./models");
+const cors = require("cors");
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "https://blog-two-red.vercel.app", // Your frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
