@@ -6,22 +6,28 @@ exports.register = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    // Check if username already exists
+    if (!username || !password) {
+      return res
+        .status(400)
+        .json({ error: "Username and password are required" });
+    }
+
     const existingUser = await db.User.findOne({ where: { username } });
     if (existingUser) {
       return res.status(400).json({ error: "Username already taken" });
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create new user
     const user = await db.User.create({ username, password: hashedPassword });
+
     res.status(201).json(user);
   } catch (error) {
+    console.error("Error during registration:", error);
     res.status(500).json({ error: "Internal server error" });
   }
+
 };
+
 
 exports.login = async (req, res) => {
   try {
