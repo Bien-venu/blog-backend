@@ -8,7 +8,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://blog-two-red.vercel.app",
-  "http://localhost:5173/",
+  "http://localhost:5173",
 ];
 
 app.use(
@@ -24,7 +24,6 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
