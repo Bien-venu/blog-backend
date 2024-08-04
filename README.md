@@ -10,6 +10,13 @@ QT Practical Test for Software Developers (Interns)
 
 ## Requirements
 
+## Environment Setup
+1. git clone this repository && cd to the project directory
+2. run `npm install` to install dependencies
+3. create a `.env` file in the root project directory
+4. copy the `.env.example` to the `.env` file and update it accordingly
+5. run `npm run start` to run project
+
 ### Backend
 
 1. **User Authentication:**
