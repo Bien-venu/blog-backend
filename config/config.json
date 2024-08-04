@@ -1,23 +1,11 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "Websinu2",
-    "database": "blog",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable": "postgresql://blog_qn8x_user:DdB4Bfyt8dabLcyydshrHy0Z9P3M05l6@dpg-cqnck5g8fa8c73ap0ho0-a.oregon-postgres.render.com/blog_qn8x_1dtp"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "postgresql://blog_qn8x_user:DdB4Bfyt8dabLcyydshrHy0Z9P3M05l6@dpg-cqnck5g8fa8c73ap0ho0-a.oregon-postgres.render.com/blog_qn8x_1dtp"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "postgresql://blog_qn8x_user:DdB4Bfyt8dabLcyydshrHy0Z9P3M05l6@dpg-cqnck5g8fa8c73ap0ho0-a.oregon-postgres.render.com/blog_qn8x_1dtp"
   }
 }
