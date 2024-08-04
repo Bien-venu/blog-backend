@@ -25,9 +25,7 @@ exports.register = async (req, res) => {
     console.error("Error during registration:", error);
     res.status(500).json({ error: "Internal server error" });
   }
-
 };
-
 
 exports.login = async (req, res) => {
   try {
@@ -39,16 +37,15 @@ exports.login = async (req, res) => {
     if (!isPasswordValid)
       return res.status(400).json({ error: "Invalid password" });
 
-    // Include more details in the token payload
     const token = jwt.sign(
-      { userId: user.id, username: user.username }, // Add other details if necessary
+      { userId: user.id, username: user.username },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" } // Optional: Set token expiration time
+      { expiresIn: "1h" }
     );
 
     res.json({ token });
   } catch (error) {
+    console.error("Error during login:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
-
