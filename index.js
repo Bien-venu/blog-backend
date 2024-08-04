@@ -6,13 +6,25 @@ const cors = require("cors");
 
 const app = express();
 
+const allowedOrigins = [
+  "https://blog-two-red.vercel.app",
+  "http://localhost:5173/",
+];
+
 app.use(
   cors({
-    origin: "https://blog-two-red.vercel.app", // Your frontend origin
+    origin: (origin, callback) => {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
 );
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
